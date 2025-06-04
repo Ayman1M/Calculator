@@ -74,8 +74,8 @@
             this.BrowserName = new System.Windows.Forms.RichTextBox();
             this.DarkMode = new System.Windows.Forms.RadioButton();
             this.WhiteMode = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.close_NOrmBracket = new System.Windows.Forms.Button();
+            this.Close_bracket = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // num_2
@@ -639,31 +639,34 @@
             this.WhiteMode.Name = "WhiteMode";
             this.WhiteMode.Size = new System.Drawing.Size(226, 44);
             this.WhiteMode.TabIndex = 60;
+            this.WhiteMode.TabStop = true;
             this.WhiteMode.Text = "White mode";
             this.WhiteMode.UseVisualStyleBackColor = true;
             this.WhiteMode.CheckedChanged += new System.EventHandler(this.WhiteMode_CheckedChanged);
             // 
-            // button1
+            // close_NOrmBracket
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(755, 906);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 81);
-            this.button1.TabIndex = 61;
-            this.button1.Text = ")";
-            this.button1.UseVisualStyleBackColor = true;
+            this.close_NOrmBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_NOrmBracket.Location = new System.Drawing.Point(755, 906);
+            this.close_NOrmBracket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.close_NOrmBracket.Name = "close_NOrmBracket";
+            this.close_NOrmBracket.Size = new System.Drawing.Size(136, 81);
+            this.close_NOrmBracket.TabIndex = 61;
+            this.close_NOrmBracket.Text = ")";
+            this.close_NOrmBracket.UseVisualStyleBackColor = true;
+            this.close_NOrmBracket.Click += new System.EventHandler(this.close_NOrmBracket_Click);
             // 
-            // button2
+            // Close_bracket
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(923, 899);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 81);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "]";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Close_bracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Close_bracket.Location = new System.Drawing.Point(923, 899);
+            this.Close_bracket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Close_bracket.Name = "Close_bracket";
+            this.Close_bracket.Size = new System.Drawing.Size(136, 81);
+            this.Close_bracket.TabIndex = 62;
+            this.Close_bracket.Text = "]";
+            this.Close_bracket.UseVisualStyleBackColor = true;
+            this.Close_bracket.Click += new System.EventHandler(this.Close_bracket_Click);
             // 
             // Form1
             // 
@@ -672,8 +675,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1892, 1149);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Close_bracket);
+            this.Controls.Add(this.close_NOrmBracket);
             this.Controls.Add(this.WhiteMode);
             this.Controls.Add(this.DarkMode);
             this.Controls.Add(this.BrowserName);
@@ -775,8 +778,8 @@
         private System.Windows.Forms.RichTextBox BrowserName;
         private System.Windows.Forms.RadioButton DarkMode;
         private System.Windows.Forms.RadioButton WhiteMode;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button close_NOrmBracket;
+        private System.Windows.Forms.Button Close_bracket;
     }
 }
 

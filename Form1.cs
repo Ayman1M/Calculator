@@ -302,5 +302,15 @@ namespace Calculator
         {
             this.BackColor = Color.DarkSeaGreen;
         }
+
+        private void close_NOrmBracket_Click(object sender, EventArgs e)
+        {
+            output.Text += ")";
+        }
+
+        private void Close_bracket_Click(object sender, EventArgs e)
+        {
+            output.Text += "]";
+        }
     }
 }
