@@ -24,11 +24,11 @@ namespace Calculator
             // يمكن استخدام char.IsDigit() للتحقق من الأرقام
             for (int i = 0; i < str.Length - 1; i++)
             {
-                if (str[i] == 'e' || str[i] == 'π')
+                if (str[i] == 'e' || str[i] == 'π' || str[i] == ')' || str[i] == ']')
                 {
                     if (char.IsDigit(str[i + 1]))
                     {
-                        return false; // استخدام غير صالح، مثل "e5" أو "π3"
+                        return false; // استخدام غير صالح، مثل "e5" أو "π3" ")7" "]6"
                     }
                 }
             }

@@ -28,6 +28,10 @@ namespace Calculator
             string python_code = $@"
 import math
 import decimal
+
+def cubic(x):
+    return x ** (1 / 3)
+
 try:
     x = decimal.Decimal({expression})
     with open(r'{resultPath}', 'w') as f:

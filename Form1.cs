@@ -14,13 +14,15 @@ namespace Calculator
     public partial class Form1 : Form
     {
         private string basicOrder;
-        private string input = string.Empty;
-        private Stack<string> line = new Stack<string>();
+
+        private string Ans;
         public Form1()
         {
             InitializeComponent();
             basicOrder = string.Empty;
-            
+            BrowserName.Text = "\tHISTORY";
+            BrowserName.BackColor = Color.Red;
+            this.BackColor = Color.DarkSeaGreen;
         }
         private void output_TextChanged(object sender, EventArgs e)
         {
@@ -190,6 +192,10 @@ namespace Calculator
 
             output.Text += "√(";
         }
+        private void root_3_Click(object sender, EventArgs e)
+        {
+            output.Text += "∛(";
+        }
         private void natrual_logarithm_Click(object sender, EventArgs e)
         {
 
@@ -245,42 +251,56 @@ namespace Calculator
             if (string.IsNullOrWhiteSpace(output.Text)) { return; }
             ExpressionValidator Testing = new ExpressionValidator(output.Text);
 
-            improveString helper = new improveString(output.Text);
-
-
             if (!Testing.IsValid)
             {
                 MessageBox.Show("bad math expression");
                 return;
             }
-            basicOrder = helper.Endimprove;
 
+            improveString helper = new improveString(output.Text);
+            basicOrder = helper.Endimprove;
+         //   MessageBox.Show(basicOrder);
             rewriteString endPoint = new rewriteString(basicOrder, Begree_Mode_.Checked);
 
             basicOrder = endPoint.pyCode;
-
+           // MessageBox.Show(basicOrder);
             pythonMaker result = new pythonMaker(basicOrder);
 
             if(!result.goodresult_()) {MessageBox.Show(result.result_) ; return; }
 
-                webBrowser1.DocumentText += output.Text + " = " + result.result_ + "\n\n";
-
-                output.Text ="";        
+             Ans = result.result_;
+             webBrowser1.DocumentText += output.Text + " = " + result.result_ + "\n\n";
+              
             return;
         }
-     
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        private void answer__Click(object sender, EventArgs e)
         {
-            
-        }
+            if(string.IsNullOrEmpty(Ans))
+            {
+                return;
+            }
+            output.Text += Ans;
 
+        }
         private void Delete_history_Click(object sender, EventArgs e)
         {
             webBrowser1.DocumentText = "";
             return;
         }
 
-    
-       
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void DarkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Black;
+        }
+
+        private void WhiteMode_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BackColor = Color.DarkSeaGreen;
+        }
     }
 }

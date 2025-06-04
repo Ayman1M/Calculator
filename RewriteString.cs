@@ -18,6 +18,7 @@ namespace Calculator
         {
             str = str.Replace("(", "((" );
             str = str.Replace(")", "))");
+            str = str.Replace("cubic(", "cubic(x=");
             return  str;
 
         }
@@ -32,6 +33,12 @@ namespace Calculator
 
                 str = str.Replace("tan(", "math.tan(" + toRadian);
 
+                str = str.Replace("sin^-1(", "(180/math.pi)*math.asin(");
+
+                str = str.Replace("cos^-1(", "(180/math.pi)*math.acos(");
+
+                str = str.Replace("tan^-1(", "(180/math.pi)*math.atan(");
+              
             }
             else
             {
@@ -39,14 +46,17 @@ namespace Calculator
 
                 str = str.Replace("cos(", "math.cos(");
 
-                str = str.Replace("tan(", "math.tan(");  
+                str = str.Replace("tan(", "math.tan(");
+
+                str = str.Replace("sin^-1(", "math.asin(");
+
+                str = str.Replace("cos^-1(", "math.acos(");
+
+                str = str.Replace("tan^-1(", "math.atan(");
+
             }
 
-            str = str.Replace("sin^-1(", "math.asin(");
 
-            str = str.Replace("cos^-1(", "math.acos(");
-
-            str = str.Replace("tan^-1(", "math.atan(");
             return str;
         }
         private string constExpress(string str)
@@ -71,21 +81,24 @@ namespace Calculator
         {
             str = str.Replace("√(", "math.sqrt(");
 
+            str = str.Replace("∛(", "cubic(");
+
             str = str.Replace("^", "**");
 
             return str;
         }
         public rewriteString(string str , bool isdegree)
         {
-            truns = BStrWrapper(str);
 
-            truns = traingleFunc(truns, isdegree);
-
-            truns = constExpress(truns);
+            truns = constExpress(str);
 
             truns = Logarithms(truns);
+             
+            truns = BStrWrapper(truns);
 
+            truns = traingleFunc(truns, isdegree);
             truns = powers(truns);
+
 
         }
     }
